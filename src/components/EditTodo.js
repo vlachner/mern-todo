@@ -20,7 +20,7 @@ export class EditTodo extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/todos/'+this.props.match.params.id)
+        axios.get('https://mern-todo-backend.herokuapp.com/todos/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
                     todo_description: response.data.todo_description,
@@ -55,7 +55,7 @@ export class EditTodo extends Component {
             todo_completed: this.state.todo_completed
         };
         console.log(obj);
-        axios.post('http://localhost:4000/todos/update/'+this.props.match.params.id, obj)
+        axios.post('https://mern-todo-backend.herokuapp.com/todos/update/'+this.props.match.params.id, obj)
             .then(res => {
                 console.log(res.data);
                 this.props.history.push('/');
